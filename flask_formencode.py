@@ -1,5 +1,9 @@
 from flask import request
 from formencode.variabledecode import variable_decode
+from formencode.validators import (
+    FieldStorageUploadConverter as _FieldStorageUploadConverter
+)
+from werkzeug.datastructures import FileStorage
 
 
 class Form(object):
@@ -59,3 +63,35 @@ class Form(object):
             return params
         else:
             return variable_decode(request.args)
+
+
+class FieldStorageUploadConverter(_FieldStorageUploadConverter):
+    """ Same as `formencode.validators.FieldStorageUploadConverter`, but
+    supporting `werkzeug.datastructures.FileStorage`.
+
+    .. seealso:: http://www.formencode.org/en/latest/modules/validators.html#formencode.validators.FieldStorageUploadConverter
+    """
+
+    def _to_python(self, value, state=None):
+        """ Returns the same value if it is a `FileStorage`, otherwise letting
+        `formencode.validators.FieldStorageUploadConverter` decide.
+
+        :param value: Value to convert
+        :param state: User-defined state object to pass through validation.
+            Defaults to `None`.
+        """
+        if isinstance(value, FileStorage):
+            return value
+        spr = super(FieldStorageUploadConverter, self)
+        return spr._to_python(value, state=state)
+
+    def is_empty(self, value):
+        """ Returns True if the filename of the `FileStorage` is not set,
+        otherwise letting `formencode.validators.FieldStorageUploadConverter`
+        decide.
+
+        :param value: Value to check if empty
+        """
+        if isinstance(value, FileStorage):
+            return not value.filename
+        return super(FieldStorageUploadConverter, self).is_empty(value)

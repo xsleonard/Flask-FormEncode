@@ -3,7 +3,8 @@ from mock import patch, call
 from flask import Flask
 from formencode.schema import Schema
 from formencode.validators import UnicodeString
-from flask_formencode import Form
+from werkzeug.datastructures import FileStorage
+from flask_formencode import Form, FieldStorageUploadConverter
 
 
 class DummySchema(Schema):
@@ -111,6 +112,36 @@ class FormToPythonTest(TestCase):
         mock_params.return_value = {}
         f.to_python(1, something='x')
         mock_init.assert_called_with(1, something='x')
+
+
+class FieldStorageUploadConverterTest(TestCase):
+
+    def test_convert_to_python(self):
+        v = FileStorage(filename='xxx.jpg')
+        c = FieldStorageUploadConverter()
+        self.assertEqual(c._to_python(v), v)
+
+    @patch('flask_formencode._FieldStorageUploadConverter._to_python')
+    def test_convert_to_python_is_not_filestorage(self, mock_convert):
+        c = FieldStorageUploadConverter()
+        v = 88
+        mock_convert.return_value = 7
+        self.assertEqual(c._to_python(v, state='xxx'), 7)
+        mock_convert.assert_called_once_with(v, state='xxx')
+
+    def test_is_empty(self):
+        c = FieldStorageUploadConverter()
+        v = FileStorage(filename='xxx.jpg')
+        self.assertFalse(c.is_empty(v))
+        self.assertTrue(c.is_empty(FileStorage(filename='')))
+
+    @patch('flask_formencode._FieldStorageUploadConverter.is_empty')
+    def test_is_empty_is_not_filestorage(self, mock_is_empty):
+        c = FieldStorageUploadConverter()
+        v = 'xxx'
+        mock_is_empty.return_value = True
+        self.assertTrue(c.is_empty(v))
+        mock_is_empty.assert_called_once_with(v)
 
 
 def test_flask_ext_import():
