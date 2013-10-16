@@ -15,7 +15,16 @@ class Form(object):
         self.schema = schema
         self.params = self.get_params(params=params)
 
-    def get_params(self, params=None):
+    def to_python(self, *args, **kwargs):
+        """ Wrapper around `formencode.schema.Schema.to_python`.
+
+        If validation fails, `formencode.Invalid` is raised. See:
+        http://www.formencode.org/en/latest/Validator.html#invalid-exceptions
+        """
+        return self.schema(*args, **kwargs).to_python(self.params)
+
+    @staticmethod
+    def get_params(params=None):
         """ Returns the request's form parameters.
 
         If params is not `None`, it is decoded and returned. Else if
@@ -50,11 +59,3 @@ class Form(object):
             return params
         else:
             return variable_decode(request.args)
-
-    def to_python(self, *args, **kwargs):
-        """ Wrapper around `formencode.schema.Schema.to_python`.
-
-        If validation fails, `formencode.Invalid` is raised. See:
-        http://www.formencode.org/en/latest/Validator.html#invalid-exceptions
-        """
-        return self.schema(*args, **kwargs).to_python(self.params)

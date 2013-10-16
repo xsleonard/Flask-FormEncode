@@ -150,7 +150,7 @@ setup(
         'Flask', 'FormEncode'
     ],
     tests_require=Test._requirements,
-    keywords=['formencode', 'flask', 'validation']
+    keywords=['formencode', 'flask', 'validation'],
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
