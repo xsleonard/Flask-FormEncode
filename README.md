@@ -4,8 +4,8 @@ Flask-FormEncode
 Flask extension for the form processing &amp; validation library [FormEncode](http://www.formencode.org/en/1.2-branch/)
 
 [![PyPI version](https://badge.fury.io/py/Flask-FormEncode.png)](http://badge.fury.io/py/Flask-FormEncode)
-[![Build Status](https://travis-ci.org/xsleonard/flask-formencode.png)](https://travis-ci.org/xsleonard/flask-formencode)
-[![Coverage Status](https://coveralls.io/repos/xsleonard/flask-formence/badge.png)](https://coveralls.io/r/xsleonard/flask-formence)
+[![Build Status](https://travis-ci.org/xsleonard/Flask-FormEncode.png)](https://travis-ci.org/xsleonard/Flask-FormEncode)
+[![Coverage Status](https://coveralls.io/repos/xsleonard/Flask-FormEncode/badge.png?branch=master)](https://coveralls.io/r/xsleonard/Flask-FormEncode?branch=master)
 
 [Read the complete docs](https://flask-formencode.readthedocs.org)
 
