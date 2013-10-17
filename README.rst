@@ -1,6 +1,3 @@
-.. toctree::
-   :maxdepth: 2
-
 .. _Flask: http://flask.pocoo.org/
 .. _Werkzeug: http://werkzeug.pocoo.org/
 .. _FormEncode: http://www.formencode.org/en/1.2-branch/
@@ -31,14 +28,6 @@ CSRF protection is not offered by this extension, see `Flask-SeaSurf`_ or
 
 .. seealso:: `FormEncode Documentation`_
 
-Installation
-============
-
-.. code-block:: bash
-
-    $ pip install Flask-FormEncode
-
-.. _example:
 
 Example
 =======
@@ -69,25 +58,3 @@ Example
         else:
             flash('Welcome {0}'.format(form['username']))
         return redirect(url_for('index'))
-
-
-
-.. _api:
-
-API
-===
-
-.. _form:
-
-Form
-====
-
-.. autoclass:: flask_formencode.Form
-    :inherited-members:
-
-.. _validators:
-
-Validators
-==========
-
-.. autoclass:: flask_formencode.FieldStorageUploadConverter
