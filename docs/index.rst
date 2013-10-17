@@ -2,8 +2,14 @@
    :maxdepth: 2
 
 .. _Flask: http://flask.pocoo.org/
-.. _FormEncode: http://www.formencode.org/
-.. _FormEncode Documentation: http://www.formencode.org/en/latest
+.. _Werkzeug: http://werkzeug.pocoo.org/
+.. _FormEncode: http://www.formencode.org/en/1.2-branch/
+.. _FormEncode Documentation: http://www.formencode.org/en/1.2-branch/
+.. _FormEncode Schema: http://www.formencode.org/en/1.2-branch/modules/schema.html
+.. _FormEncode validators: http://www.formencode.org/en/1.2-branch/Validator.html
+.. _CsrfProtect: https://flask-wtf.readthedocs.org/en/latest/csrf.html
+.. _Flask-WTF: https://flask-wtf.readthedocs.org/en/latest/
+.. _Flask-SeaSurf: http://pythonhosted.org/Flask-SeaSurf/
 
 .. _flask_formencode:
 
@@ -15,6 +21,13 @@ Flask-FormEncode
 
 Flask-FormEncode is a `Flask`_ extension for `FormEncode`_, a validation and
 form generation package.
+
+Flask and `Werkzeug`_ specific support is added for loading ``request`` data in
+a `FormEncode Schema`_ automatically, and for `FormEncode validators`_ that handle file
+uploading.
+
+CSRF protection is not offered by this extension, see `Flask-SeaSurf`_ or
+`Flask-WTF`_'s `CsrfProtect`_ for that.
 
 .. seealso:: `FormEncode Documentation`_
 
@@ -70,3 +83,10 @@ Form
 
 .. autoclass:: flask_formencode.Form
     :inherited-members:
+
+.. _validators:
+
+Validators
+==========
+
+.. autoclass:: flask_formencode.FieldStorageUploadConverter
