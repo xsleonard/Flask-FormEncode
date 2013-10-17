@@ -11,7 +11,7 @@ Links
 
 * `documentation <http://flask-formencode.readthedocs.org/en/latest/>`_
 * `github <https://github.com/xsleonard/flask-formencode>`_
-* `development version <https://github.com/xsleonard/flask-formencode/tarball/master#egg=Flask-sFormEncode>`_
+* `development version <https://github.com/xsleonard/flask-formencode/tarball/master#egg=Flask-FormEncode>`_
 """
 
 import os
