@@ -7,6 +7,7 @@
 .. _CsrfProtect: https://flask-wtf.readthedocs.org/en/latest/csrf.html
 .. _Flask-WTF: https://flask-wtf.readthedocs.org/en/latest/
 .. _Flask-SeaSurf: http://pythonhosted.org/Flask-SeaSurf/
+.. _Complete Flask-FormEncode Documentation: http://pythonhosted.org/Flask-FormEncode/
 
 .. _flask_formencode:
 
@@ -25,6 +26,8 @@ uploading.
 
 CSRF protection is not offered by this extension, see `Flask-SeaSurf`_ or
 `Flask-WTF`_'s `CsrfProtect`_ for that.
+
+.. seealso:: `Complete Flask-FormEncode Documentation`_
 
 .. seealso:: `FormEncode Documentation`_
 
