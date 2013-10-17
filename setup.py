@@ -9,7 +9,7 @@ A Flask extension for FormEncode (a a validation and form generation library)
 Links
 `````
 
-* `documentation <http://flask-formencode.readthedocs.org/en/latest/>`_
+* `documentation <http://pythonhosted.org/Flask-FormEncode/>`_
 * `github <https://github.com/xsleonard/flask-formencode>`_
 * `development version <https://github.com/xsleonard/flask-formencode/tarball/master#egg=Flask-FormEncode>`_
 """

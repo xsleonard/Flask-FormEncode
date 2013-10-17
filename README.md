@@ -7,7 +7,7 @@ Flask extension for the form processing &amp; validation library [FormEncode](ht
 [![Build Status](https://travis-ci.org/xsleonard/Flask-FormEncode.png)](https://travis-ci.org/xsleonard/Flask-FormEncode)
 [![Coverage Status](https://coveralls.io/repos/xsleonard/Flask-FormEncode/badge.png?branch=master)](https://coveralls.io/r/xsleonard/Flask-FormEncode?branch=master)
 
-[Read the complete docs](https://flask-formencode.readthedocs.org)
+[Read the complete docs](http://pythonhosted.org/Flask-FormEncode/)
 
 Flask-FormEncode supports python 2.6, 2.7 and pypy. Python 3 support will be added once FormEncode supports it (expected next release).
 
