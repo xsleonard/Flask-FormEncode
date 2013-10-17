@@ -1,0 +1,8 @@
+include test/requirements.txt
+include LICENSE
+include docs/index.rst
+include docs/_themes/*
+include docs/_themes/*/*
+include docs/_themes/*/*/*
+include docs/Makefile
+include docs/conf.py
